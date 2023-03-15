@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+html{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.redes{
+    height: 40px;
+    width: 100%;
+    position: static;
+}
+.container-img{
+    position: absolute;
+    right: 0;
+}
+.imgs{
+    height: 25px;
+    padding: 5px 15px 0 0;
+    width: 25px;
+}
+.imgs:hover{
+    cursor: pointer;
+}
+.navegador{
+    position: sticky;
+    width: 100%;
+    top: 0;
+    height: 80px;
+    background-color: #F9F7F3;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 50%;
+    position: absolute;
+}
+.aLogo{
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+}
+.logonecochea{
+    height: 60px;
+}
+.titulo{
+    font-family: 'Rubik Mono One', sans-serif;
+    position: absolute;
+    font-size: 3em;
+    left: 15%;
+    color: #191308;
+}
+.container-menu{
+    height: 80px;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+a{
+    text-decoration: none;
+    color: #48435C;
+}
+
+p:hover{
+    cursor: pointer;
+}
+.container-clima{
+    height: 200px;
+    width: 90%;
+    position: relative;
+    background-color: #ada0e1;
+    margin: auto;
+    margin-top: 10px;
+    padding-top: 20px;
+    border: 1px solid #18161e;
+    border-radius: 3px;
+}
+.container-slider{
+    height: 400px;
+    width: 90%;
+    position: relative;
+    background-color: #cecdd2;
+    margin: auto;
+    margin-top: 10px;
+    padding-top: 20px;
+    border: 1px solid #48435C;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+.boton-whatsapp{
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    z-index: 1;
+}
+.boton-whatsapp:hover{
+    cursor: pointer;
+}
+footer{
+    height: 200px;
+    width: 100%;
+    background-color: #F2F7F2;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.desarrollado{
+    text-align:center;
+    position: absolute;
+    color: rgb(188, 187, 186);
+}
+.desarrollado:hover{
+    cursor:default;
+}
