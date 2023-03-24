@@ -11,7 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 2px 2px #93ccc6;
+    box-shadow: 0 0 1px 0px #93ccc6;
     background-color: #cfffdd   ;
 }
 .container-logo{
@@ -22,8 +22,8 @@
     height: 80px;
 }
 .img-logo{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
 }
 .container-menu{
     width: 40%;
@@ -37,6 +37,67 @@
     cursor: pointer;
     font-family: 'Noto Serif Lao', serif;
 }
+
+/* DROPDOWN */
+
+.container-dropdown{
+    width: 100%;
+    background-color: #cfffdd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #27ae60; 
+    box-shadow: 0px 2px 2px 1px #71dbd2;
+}
+.dropdown{
+    width: 20%;
+    position: relative;
+}
+.caja-dd{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.drop-btn{
+    cursor: pointer;
+    font-family: 'Noto Serif Lao', serif;
+    background-color: #cfffdd;
+    border: none;
+    padding: 10px;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #71dbd2;
+    z-index: 999;
+    overflow-y: auto;
+    max-height: 300px;
+}
+.dropdown-content a {
+  color: #27ae60;
+  text-decoration: none;
+  display: flex;
+  justify-content: start;
+  font-size: 0.9em;
+  padding: 10px 20px;
+}
+.dropdown-content a:hover {
+    background-color: #eae0e0;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.img-flecha{
+    width: 20px;
+    cursor: pointer;
+}
+
+/* BUSQUEDA */
+
+
 .container-src{
     width: 40%;
     display: flex;
@@ -44,30 +105,35 @@
     align-items: center;
 }
 .search{
-    background-color: #e2e3d9;
+    background-color: white;
     height: 40px;
-    border: 2px solid #bac99a;
-    cursor: pointer;
-    border-radius: 0.375rem;
+    width: 60%;
+    border: 1px solid #27ae60;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .lupa{
-    height: 40px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
 }
 .btn-src{
     border: none;
-    background-color: #e2e3d9;
-    color: #198754;
+    background-color: white;
+    color: #27ae60;
     padding: 10px;
+}
+.btn-src::placeholder{
+    color: #27ae60;
 }
 .btn-src:focus{
     outline: none;
 }
 .search:hover{
-    box-shadow: 0 0 2px 2px #5f938e;
+    box-shadow: 0 0 3px 1px #27ae60;
 }
 .search:focus{
     outline: none;
