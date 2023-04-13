@@ -22,8 +22,8 @@
     height: 80px;
 }
 .img-logo{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 .container-menu{
     width: 20%;
@@ -45,8 +45,8 @@
     justify-content: center;
 }
 .carrito{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
@@ -74,6 +74,7 @@
     height: 30px;
     padding: 5px;
     cursor: pointer;
+    border-right: 1px solid #27ae60;
 }
 .btn-src{
     border: none;
@@ -134,7 +135,7 @@
     max-height: 300px;
 }
 .dropdown-content a {
-  color: #27ae60;
+  color: #5c5d5e;
   text-decoration: none;
   display: flex;
   justify-content: start;
@@ -142,7 +143,7 @@
   padding: 10px 20px;
 }
 .dropdown-content a:hover {
-    background-color: #eae0e0;
+    background-color: #f7f4f4;
 }
 .dropdown:hover .dropdown-content{
     display: block;
@@ -169,7 +170,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: ;
     gap: 20px;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -188,17 +188,27 @@
 /* Boton Whatsapp */
 
 .btn-wsp{
-    width: 90px;
+    width: 400px;
     height: 90px;
     position: fixed;
     bottom: 0;
     right: 0;
+    display: flex;
+    flex-direction: row;
 }
 .img-btn-wsp{
-    height: 75px;
-    width: 75px;
+    height: 60px;
+    width: 60px;
     cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
 }
+.container-toast{
+    width: 200px;
+}
+/* FOOTER */
+
 footer{
     margin-top: 50px;
     height: 550px;
@@ -238,6 +248,7 @@ footer h2{
     outline: none;
 }
 .btn-sub{
+    height: 58px;
     padding: 10px;
     border: none;
     border-radius: 0 10px 10px 0;
@@ -246,6 +257,7 @@ footer h2{
 }
 .btn-sub:hover{
     box-shadow: 0 0 1px 1px #f1e9bb;
+    background-color: #e7e0b2;
 }
 .part-titulos{
     width: 100%;
@@ -285,13 +297,15 @@ footer h2{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 17px;
     width: 40%;
 }
 .red{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     padding: 0 40px;
 }
 .img-redes{
@@ -329,3 +343,4 @@ footer h2{
     color: #6e6d7a;
     font-size: 0.85em;
 }
+
