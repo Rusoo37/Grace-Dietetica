@@ -17,94 +17,55 @@
         <header>
             <nav class="nav">
                 <div class="container-logo">
-                    <a href="http://127.0.0.1:5500/index.html"><img src="img/logo.png" alt="logo" class="img-logo"></a>
+                    <a href="http://127.0.0.1:5500/proyecto.html" onclick="mostrarProductos()"><img src="img/logo.png" alt="logo" class="img-logo"></a>
                 </div>
 
                 <!--BUSQUEDA-->
 
-                <div class="container-src">
+                <div class="container-src mt-4">
                     <div class="search">
                         <img src="img/lupa.png" alt="Lupa" class="lupa">
-                        <input class="btn-src" type="text" placeholder="Buscar" style="font-size: small; line-height: initial;"/>
+                        <input class="btn-src" id="input-src" type="text" placeholder="Buscar" style="font-size: small; line-height: initial;"/>
+                    </div>
+                    
+                    <div class="resultados-src">
+                            
                     </div>
                 </div> 
 
                 <!--LOGIN-->
 
                 <div class="container-menu">
-                    <p class="p">Registrarse</p>
-                    <p class="p">Ingresar</p>
+                    <button class="p" id="p-registrarse">Registrarse</button>
+                    <button class="p" id="p-ingresar">Ingresar</button>
                 </div>
 
                 <!-- CARRITO -->
 
-                <div class="container-cart">
-                    <img src="./img/bag.svg" alt="Carrito" class="carrito">
+                <div class="container-cart mt-4">
+                    <button id="btn-cart" style="border: none; background-color: #cfffdd;" onclick="activar()">
+                        <img src="./img/bag.svg" alt="Carrito" class="carrito">
+                    </button>
                 </div>
             </nav>
 
             <!--DROPDOWN-->
 
-            <div class="container-dropdown">
-                <div class="dropdown">
-                    <div class="caja-dd">
-                        <button class="drop-btn">Cereales</button>
-                        <img src="img/flecha.png" alt="Flecha" class="img-flecha">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">Almohaditas</a>
-                        <a href="#">Avena</a>
-                        <a href="#">Germen de Trigo</a>
-                        <a href="#">Quinoa inflada</a>
-                    </div>
+            <div class="container-dropdown" style="margin-bottom: 3px;">
+                <div class="dropdown" style="margin-right: 5px;">
+                    <button class="btn-dropdown" id="d1">Cereales</button>
                 </div>
-                <div class="dropdown">
-                    <div class="caja-dd">
-                        <button class="drop-btn">Especias</button>
-                        <img src="img/flecha.png" alt="Flecha" class="img-flecha">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">Canela</a>
-                        <a href="#">Nuez moscada</a>
-                        <a href="#">Oregano</a>
-                        <a href="#">Pimentón</a>
-                    </div>
+                <div class="dropdown" style="margin-right: 5px;">
+                    <button class="btn-dropdown" id="d2">Especias</button>
                 </div>
-                <div class="dropdown">
-                    <div class="caja-dd">
-                        <button class="drop-btn">Frutos secos</button>
-                        <img src="img/flecha.png" alt="Flecha" class="img-flecha">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">Almendra</a>
-                        <a href="#">Castaña</a>
-                        <a href="#">Nuez</a>
-                        <a href="#">Pasas</a>
-                    </div>
+                <div class="dropdown" style="margin-right: 5px;">
+                    <button class="btn-dropdown" id="d3">Frutos secos</button>
                 </div>
-                <div class="dropdown">
-                    <div class="caja-dd">
-                        <button class="drop-btn">Semillas</button>
-                        <img src="img/flecha.png" alt="Flecha" class="img-flecha">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">Avellana</a>
-                        <a href="#">Chía</a>
-                        <a href="#">Quinoa</a>
-                        <a href="#">sésamo</a>
-                    </div>
+                <div class="dropdown" style="margin-right: 5px;">
+                    <button class="btn-dropdown" id="d4">Semillas</button>
                 </div>
-                <div class="dropdown">
-                    <div class="caja-dd">
-                        <button class="drop-btn">Suplementos deportivos</button>
-                        <img src="img/flecha.png" alt="Flecha" class="img-flecha">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">Whey Protein</a>
-                        <a href="#">Creapure Star</a>
-                        <a href="#">Mervick Whey Protein</a>
-                        <a href="#">Nutrilab Creatine</a>
-                    </div>
+                <div class="dropdown"">
+                    <button class="btn-dropdown" id="d5">Suplementos deportivos</button>
                 </div>
             </div>
         </header>
@@ -143,17 +104,68 @@
         </div>
 
         <!--GALERIA DE DESTACADOS PRODUCTOS-->
-
-        <div class="container container-products d-flex flex-row flex-wrap">
+        <div class="div-tit-p mt-4">
+            <h1 class="tit-productos"></h1>
+        </div>
+        <div class="container-products mt-5" id="cont-cart">
 
         </div>
 
-        <!--OFERTAS DE LA SEMANA-->
+        <!-- PRODUCTO AMPLIADO -->
 
-        <div class="container container-ofertas">
+        <div class="mt-5 container-img-ampliada">
 
         </div>
-        
+
+        <!--CARRITO-->
+
+        <div class="container" id="container-carro" style="display: none">
+            <h2 class="my-5" style="text-align: center;">Carrito de Compras</h2>
+            <div class="container d-flex flex-row justify-content-around">
+                <p>Producto:</p>
+                <p>Nombre:</p>
+                <p>Precio:</p>
+                <p>Cantidad:</p>
+                <p>Subtotal: </p>
+            </div>
+            <div class="container container-carrito d-flex flex-column">
+
+            </div>
+            <div class="p-total">
+                
+                <p id="tot"></p>
+            </div>
+            <div class="container-btn d-flex justify-content-end align-items-center mt-3" style="width: 99%;">
+                <div>
+                    <button class="btn btn-danger me-5" id="vaciarC">Vaciar carrito</button>
+                </div>
+                <div>
+                    <button class="btn btnAS" id="comprarC" style="background-color: white;
+                    border: 2px solid #27ae60;
+                    border-radius: 8px;">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="container-ingreso" style="height: 100%; width: 100%; display: none;">
+
+        </div>     
+
+        <div class="toast-container position-fixed end-0 p-3" style="bottom: 5rem;">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <img src="" class="rounded me-2" alt="">
+              <strong class="me-auto">Grace Dietetica</strong>
+              <small>Ahora</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              
+            </div>
+          </div>
+        </div>
+
+
         <!--BOTON DE WHATSAPP-->
 
         <div class="btn-wsp">  
@@ -246,4 +258,5 @@
     </body>
         <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
         <script src="./js/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

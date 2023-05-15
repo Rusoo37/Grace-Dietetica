@@ -10,9 +10,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     box-shadow: 0 0 1px 0px #93ccc6;
-    background-color: #cfffdd   ;
+    background-color: #cfffdd;
 }
 .container-logo{
     width: 30%;
@@ -37,17 +36,8 @@
     cursor: pointer;
     font-family: 'Noto Serif Lao', serif;
     padding-top: 15px;
-}
-.container-cart{
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.carrito{
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+    background-color: #cfffdd;
+    border: none;
 }
 
 /* BUSQUEDA */
@@ -56,7 +46,8 @@
 .container-src{
     width: 40%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
 }
 .search{
@@ -64,7 +55,7 @@
     height: 40px;
     width: 60%;
     border: 1px solid #27ae60;
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -95,65 +86,94 @@
     outline: none;
     box-shadow: 0 0 2px 2px #93ccc6;
 }
+.resultados-src{
+    width: 60%;
+    display: none;
+    flex-direction: column;
+    opacity: 100%;
+    z-index: 1;
+    background-color: white;
+    border-bottom-left-radius:  2px;
+    border-bottom-right-radius:  2px;
+}
+.card-src{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.card-src:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 1px #27ae60;
+}
+.img-src{
+    height: 4rem;
+    width: 3rem;
+}
+ .name-src{
+    margin-top: 10px;
+}
+
+/* LOGO CARRITO */
+
+.container-cart{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.carrito{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
 
 /* DROPDOWN */
 
 .container-dropdown{
     width: 100%;
+    height: 3rem;
     background-color: #cfffdd;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #27ae60; 
-    box-shadow: 0px 2px 2px 1px #71dbd2;
+    box-shadow: 0px 0px 2px 1px #71dbd2;
 }
 .dropdown{
     width: 20%;
-    position: relative;
-}
-.caja-dd{
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #cfffdd;
+}
+.dropdown:hover{
+    box-shadow: 0 0 5px 2px #acc3b3;
+    cursor: pointer;
+}
+.btn-dropdown{
+    border: none;
+    background-color: #cfffdd;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* PRODUCTOS */
+
+.div-tit-p{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.drop-btn{
-    cursor: pointer;
-    font-family: 'Noto Serif Lao', serif;
-    background-color: #cfffdd;
-    border: none;
-    padding: 10px;
+.tit-productos{
+    margin: auto;
 }
-.dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    border: 1px solid #71dbd2;
-    z-index: 999;
-    overflow-y: auto;
-    max-height: 300px;
-}
-.dropdown-content a {
-  color: #5c5d5e;
-  text-decoration: none;
-  display: flex;
-  justify-content: start;
-  font-size: 0.9em;
-  padding: 10px 20px;
-}
-.dropdown-content a:hover {
-    background-color: #f7f4f4;
-}
-.dropdown:hover .dropdown-content{
-    display: block;
-}
-.img-flecha{
-    width: 20px;
-    cursor: pointer;
-}
-
-/* PRODUCTOS */
 
 .titulo-products{
     gap: 20px;
@@ -166,17 +186,13 @@
 }
 .container-products{
     width: 100%;
-    margin: auto;
+    margin-top: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: stretch;
-    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
-.card:hover{
+.card1:hover{
     box-shadow: 1px 2px 4px 5px #71dbd2;
     transition: 0.2s;
     cursor: pointer;
@@ -184,6 +200,64 @@
 .imgs{
     height: 250px;
 }
+#cont-cart{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* Carrito */
+
+.img-carro{
+    height: 150px;
+    width: 150px;
+}
+
+/* PRODUCTO AMPLIADO */
+
+.container-img-ampliada{
+    width: 80%;
+    margin: auto;
+}
+.cont-imgA{
+    width: 50%;
+}
+.img-ampliada{
+    height: 80%;
+    width: 80%;
+}
+.p-total{
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+.btnA{
+    height: 3rem;
+    width: 10rem;
+    background-color: white;
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+}
+.btnA:hover, .btnAS:hover{
+    box-shadow: 1px 1px 4px 1px #27ae60;
+}
+.btnA:focus{
+    height: 3rem;
+    width: 10rem;
+    background-color: #27ae60;
+    border: 2px solid #b4e9e4;
+    color: white;
+    border-radius: 8px;
+}
+
+/* LOGIN */
+
+#container-ingreso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Boton Whatsapp */
 
