@@ -68,7 +68,7 @@ function mostrarProductos(){
         contenedor.innerHTML =
             `
         <div class="mt-2 card card1 d-flex align-items-center" style="width: 14rem; height: 450px;">
-            <button class=" items ampliarImagen" class="mt-3" style="border:none; background-color: white;" onclick="ampliar()">
+            <button class=" items ampliarImagen" class="mt-3" style="border:none; background-color: white;">
                 <div class="card-body text-center">
                     <img class="imgs card-img-top" src=${producto.img} alt="Creapure">
                     <p class="card-text fs-6 mt-3" style="height: 30px; margin-top: 5px;" id="product">${producto.nombre}</p>
@@ -104,9 +104,9 @@ function agregar(p) {
     pintarCarro();
 }
 
-const btnS = document.querySelectorAll(".btnSub").forEach((btn, i) => {
+const btnS = document.querySelectorAll(".btnSub").forEach((btn, j) => {
     btn.addEventListener("click", () => {
-        agregar(Productos[i])
+        agregar(Productos[j])
         toastBootstrap.show()
     })
 })
@@ -114,10 +114,10 @@ const btnS = document.querySelectorAll(".btnSub").forEach((btn, i) => {
 /* PRODUCTO AMPLIADO */
 
 function ampliar(p) {
-    container_prod_ampliado.innerHTML = ''
-    container_prod_ampliado.style.display = 'block';
+    container_prod_ampliado.innerHTML = "";
     container_product.style.display = "none";
     slider.style.display = 'none';
+    container_prod_ampliado.style.display = 'block';
     let contenedorA = document.createElement("div");
     contenedorA.innerHTML =
     `
@@ -126,9 +126,9 @@ function ampliar(p) {
             <img class="img-ampliada" src=${p.img} alt="Creapure">
         </div>
         <div class="d-flex flex-column w-50">
-            <h1 class="card-text fs-6 my-5" style="" id="product">${p.nombre} whey Protein 2lb 1kg</h1>
+            <h1 class="card-text fs-6 my-5" style="" id="product">${p.nombre}</h1>
             <p class="mb-5" style="width: 60%">${p.descripcion}</p>
-            <p class="mt-1 mb-3"><strong>Precio:</strong> $${p.precio}</p>
+            <p class="mt-1 mb-3"><strong>Precio:</strong> $ ${p.precio}</p>
             <div style="height: 1rem; width: 60%">
                 <button class="btnA p-1">Agregar al carrito</button>
             </div>
@@ -138,17 +138,23 @@ function ampliar(p) {
     container_prod_ampliado.appendChild(contenedorA)
 }
 
-const btnAAS = document.querySelectorAll(".btnA").forEach((btn, i) => {
+const btnA = document.querySelectorAll(".btnA");
+/* btnA.forEach((btn, i) => {
     btn.addEventListener("click", () => {
-        //agregar(Productos[i]);
-        console.log("llegue");
+        console.log("hola")
     })
-})
+    
+}) */
+console.log(btnA)
 
 const btn_ampliar = document.querySelectorAll(".ampliarImagen");
 btn_ampliar.forEach((btn2, j) => {
     btn2.addEventListener("click", () => {
         ampliar(Productos[j])
+        const btnA = document.querySelector(".btnA");
+        btnA.addEventListener("click", () => {
+            agregar(Productos[j]);
+        })
     })
 })
 
@@ -465,9 +471,3 @@ container_dropdown5.addEventListener('click', () => {
 
 const toastLiveExample = document.getElementById('liveToast')
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-
-/*
- Tareas: 14-5-23
-1- El ampliado se agregue al carrito --> ERROR
-3- La barra de busqueda tenga un scroll --> 
-*/

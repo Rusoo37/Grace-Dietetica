@@ -88,6 +88,7 @@
 }
 .resultados-src{
     width: 60%;
+    height: 20rem;
     display: none;
     flex-direction: column;
     opacity: 100%;
@@ -95,6 +96,10 @@
     background-color: white;
     border-bottom-left-radius:  2px;
     border-bottom-right-radius:  2px;
+    line-height: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
 }
 .card-src{
     width: 100%;
@@ -236,7 +241,7 @@
     width: 10rem;
     background-color: white;
     border: 2px solid #27ae60;
-    border-radius: 8px;
+    border-radius: 80px;
 }
 .btnA:hover, .btnAS:hover{
     box-shadow: 1px 1px 4px 1px #27ae60;
@@ -247,7 +252,7 @@
     background-color: #27ae60;
     border: 2px solid #b4e9e4;
     color: white;
-    border-radius: 8px;
+    border-radius: 80px;
 }
 
 /* LOGIN */
