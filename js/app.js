@@ -2,7 +2,6 @@
 el usuario "ingresa" se guarda en el localStorage y puede efectuar la compra, utilice sweet alert para no usar los alerts comunes.
 Ademas, de la barra de busqueda que utilizo un filter. Tambien, muestro todos los productos y si apreta en la seccion de especies y demas, 
 se filtraran por categoria (yo creo que esa parte del codigo se puede optimizar, es de las ultimas del app.js).
-Me queda hacer un scroll en los resultados de la busqueda que lo estare terminando para la entrega final
 Espero cumplir los requisitos y ya estar listo para la entrega final.
 */
 
