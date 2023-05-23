@@ -17,7 +17,7 @@
         <header>
             <nav class="nav">
                 <div class="container-logo">
-                    <a href="http://127.0.0.1:5500/proyecto.html" onclick="mostrarProductos()"><img src="img/logo.png" alt="logo" class="img-logo"></a>
+                    <a href="index.html" onclick="mostrarProductos()"><img src="img/logo.png" alt="logo" class="img-logo"></a>
                 </div>
 
                 <!--BUSQUEDA-->
@@ -43,7 +43,7 @@
                 <!-- CARRITO -->
 
                 <div class="container-cart mt-4">
-                    <button id="btn-cart" style="border: none; background-color: #cfffdd;" onclick="activar()">
+                    <button id="btn-cart" style="border: none; background-color: #cfffdd;">
                         <img src="./img/bag.svg" alt="Carrito" class="carrito">
                     </button>
                 </div>
@@ -121,12 +121,25 @@
 
         <div class="container" id="container-carro" style="display: none">
             <h2 class="my-5" style="text-align: center;">Carrito de Compras</h2>
-            <div class="container d-flex flex-row justify-content-around">
-                <p>Producto:</p>
-                <p>Nombre:</p>
-                <p>Precio:</p>
-                <p>Cantidad:</p>
-                <p>Subtotal: </p>
+            <div class="container d-flex flex-row justify-content-center">
+                <div style="width: 20%; text-align: center;">
+                    <p>Producto:</p>
+                </div>
+                <div style="width: 20%; text-align: center;">
+                    <p>Nombre:</p>
+                </div>
+                <div style="width: 15%; text-align: center;">
+                    <p>Precio:</p>
+                </div>
+                <div style="width: 15%; text-align: center;">
+                    <p>Cantidad:</p>
+                </div>
+                <div style="width: 15%; text-align: center;">
+                    <p>Subtotal:</p>
+                </div>
+                <div style="width: 15%; text-align: center;">
+                    <p>Eliminar:</p>
+                </div>
             </div>
             <div class="container container-carrito d-flex flex-column">
 
