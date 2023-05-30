@@ -88,7 +88,7 @@
 }
 .resultados-src{
     width: 60%;
-    height: 20rem;
+    max-height: 20rem;
     display: none;
     flex-direction: column;
     opacity: 100%;
@@ -119,6 +119,15 @@
 }
  .name-src{
     margin-top: 10px;
+}
+.p-descuento{
+    padding: 2px;
+    border-radius: 5px;
+    background-color: red;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: white;
 }
 
 /* LOGO CARRITO */

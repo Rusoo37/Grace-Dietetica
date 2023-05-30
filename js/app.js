@@ -1,4 +1,5 @@
 /* 
+GRACIAS!
 */
 
 //DIV PRODUCTOS
@@ -24,7 +25,6 @@ const resultados_src = document.querySelector(".resultados-src")
 
 let compraValida = false
 
-
 /* ARRAYS DE PRODUCTO Y CARRITO */
 
 let carrito = []
@@ -39,19 +39,38 @@ function mostrarProductos(data) {
     data.forEach(producto => {
         tit_productos.innerHTML = "Productos"
         let contenedor = document.createElement("div")
-        contenedor.innerHTML =
+        if (producto.descuento){
+            contenedor.innerHTML =
+                `
+            <div class="mt-2 card card1 d-flex align-items-center" style="width: 14rem; height: 450px;">
+                <button class=" items ampliarImagen" class="mt-3" style="border:none; background-color: white;">
+                    <div class="card-body text-center">
+                        <img class="imgs card-img-top" src=${producto.img} alt="Creapure">
+                        <p class="p-descuento">${producto.porcentaje}% OFF en la 2da Unidad.</p>
+                        <p class="card-text fs-6 mt-3" style="height: 30px; margin-top: 5px;" id="product">${producto.nombre}</p>
+                        <p class="mt-4">Precio: $ ${producto.precio}</p>
+                    </div>
+                    <button class="btn btn-light p-1 btnSub add-to-cart" id="btn-carrito" style="width: 80%">Agregar al carrito</button>
+                </button>
+            </div>
             `
-        <div class="mt-2 card card1 d-flex align-items-center" style="width: 14rem; height: 450px;">
-            <button class=" items ampliarImagen" class="mt-3" style="border:none; background-color: white;">
-                <div class="card-body text-center">
-                    <img class="imgs card-img-top" src=${producto.img} alt="Creapure">
-                    <p class="card-text fs-6 mt-3" style="height: 30px; margin-top: 5px;" id="product">${producto.nombre}</p>
-                    <p class="mt-4">Precio: $ ${producto.precio}</p>
-                </div>
-                <button class="btn btn-light p-1 btnSub add-to-cart" id="btn-carrito" style="width: 80%">Agregar al carrito</button>
-            </button>
-        </div>
-        `
+        }else{
+            contenedor.innerHTML =
+                `
+            <div class="mt-2 card card1 d-flex align-items-center" style="width: 14rem; height: 450px;">
+                <button class=" items ampliarImagen" class="mt-3" style="border:none; background-color: white;">
+                    <div class="card-body text-center">
+                        <div class="d-flex flex-row">
+                            <img class="imgs card-img-top" src=${producto.img} alt="Creapure">
+                        </div>
+                        <p class="card-text fs-6 mt-3" style="height: 30px; margin-top: 5px;" id="product">${producto.nombre}</p>
+                        <p class="mt-4">Precio: $ ${producto.precio}</p>
+                    </div>
+                    <button class="btn btn-light p-1 btnSub add-to-cart" id="btn-carrito" style="width: 80%">Agregar al carrito</button>
+                </button>
+            </div>
+            `
+        }
         container_product.appendChild(contenedor)
     })
 }
@@ -98,24 +117,35 @@ const productos = async () => {
         const resultado = data.filter((el) => el.nombre.toLowerCase().includes(result))
         if (result != "") {
             resultados_src.style.display = 'flex';
-            resultado.forEach((p) => {
-                let contenedorSrc = document.createElement('div');
-                contenedorSrc.innerHTML =
+            if (resultado.length != 0){
+                resultado.forEach((p) => {
+                    let contenedorSrc = document.createElement('div');
+                    contenedorSrc.innerHTML =
+                        `
+                    <div class="card-src">
+                        <div class="d-flex justify-content-center align-center" style="width: 33%; height: 90%">
+                            <img class="img-src" src=${p.img} alt="Creapure">
+                        </div>
+                        <div style=" width: 33%;">
+                            <p class="name-src" >${p.nombre}</p>
+                        </div>
+                        <div class="mt-2" style="width: 33%;">
+                            <p class="precio-src">$${p.precio}</p>
+                        </div>
+                    </div>
                     `
-                <div class="card-src">
-                    <div class="d-flex justify-content-center align-center" style="width: 33%; height: 90%">
-                        <img class="img-src" src=${p.img} alt="Creapure">
+                    resultados_src.appendChild(contenedorSrc);
+                });
+            }else{
+                let contenedorSrc = document.createElement('div');
+                    contenedorSrc.innerHTML =
+                        `
+                    <div class="card-src d-flex align-center justify-content-center">
+                        <p style="margin: auto">Sin resultados</p>
                     </div>
-                    <div style=" width: 33%;">
-                        <p class="name-src" >${p.nombre}</p>
-                    </div>
-                    <div class="mt-2" style="width: 33%;">
-                        <p class="precio-src">$${p.precio}</p>
-                    </div>
-                </div>
-                `
-                resultados_src.appendChild(contenedorSrc);
-            });
+                    `
+                    resultados_src.appendChild(contenedorSrc);
+            }
         } else {
             resultados_src.style.display = 'none';
         }
@@ -148,11 +178,17 @@ function agregar(p) {
     const existeP = carrito.find((el) => el.id === p.id)
     if (existeP) {
         existeP.cantidad++;
-        existeP.subtotal += existeP.precio;
+        if ((existeP.cantidad % 2 == 0) && (existeP.descuento)){  
+            let cantDescuento = existeP.porcentaje      
+            let descuento = (cantDescuento*existeP.precio)/100
+            existeP.subtotal += existeP.precio - descuento;
+        }else{
+            existeP.subtotal += existeP.precio;
+        }
         const divExiste = document.querySelector(`#producto-${existeP.id}`);
         divExiste.querySelector(".cantidad-producto").textContent = existeP.cantidad;
         divExiste.querySelector(".subtotal-producto").textContent = existeP.subtotal;
-    } else {
+    }else {
         carrito.push({ ...p, cantidad: 1, subtotal: p.precio });
     }
     productosStr.push(p)
@@ -232,7 +268,6 @@ function pintarCarro() {
             eliminar(carrito[i])
         })
     })
-    
 }
 
 /* MOSTRAR - OCULTAR CARRITO */
@@ -322,8 +357,14 @@ btnCompra.addEventListener("click", () => {
 function eliminar(p) {
     const existeP = carrito.find((el) => el.id === p.id)
     if ((existeP) && (existeP.cantidad > 1)) {
+        if (existeP.cantidad % 2 == 0){
+            let cantDescuento = existeP.porcentaje;
+            let descuento = (existeP.precio*cantDescuento)/100;
+            existeP.subtotal -= existeP.precio - descuento;
+        }else{
+            existeP.subtotal -= existeP.precio;
+        }
         existeP.cantidad--;
-        existeP.subtotal -= existeP.precio;
         const divExiste = document.querySelector(`#producto-${existeP.id}`);
         divExiste.querySelector(".cantidad-producto").textContent = existeP.cantidad;
         divExiste.querySelector(".subtotal-producto").textContent = existeP.subtotal;
@@ -335,6 +376,7 @@ function eliminar(p) {
     const productos_local = JSON.parse(productos_localJSON)
     
     //BUSCAR ELEMENTO
+
     let i = 0;
     let valido = true;
     while ((i < productos_local.length) && (valido)){
@@ -447,7 +489,6 @@ login.appendChild(contenedorLogin)
 const inputMail = document.querySelector("#floatingInput2");
 const inputPass = document.querySelector("#floatingPassword");
 const btnIngreso = document.querySelector("#btn-ingresar");
-
 
 btnIngreso.addEventListener("click", (e) => {
     e.preventDefault();
@@ -577,5 +618,5 @@ btn_suscribe.addEventListener("click", () => {
 })
 
 /* 
-    
+    ELIMINAR CON DESCUENTO
 */
