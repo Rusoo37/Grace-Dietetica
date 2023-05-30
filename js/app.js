@@ -1,5 +1,17 @@
 /* 
-GRACIAS!
+Llego el fin del curso, primero que nada, quiero agradecerte Omar por el conocimiento y buena onda que le has
+metido a tus clases, espero que sigas asi!
+Ahora toca el codigo...
+Es una apliacion en la cual consiste en una dietetica que vende distintos tipos de productos, algunos con descuentos,
+otros no. Al apretar en los productos te llevara a su informacion de manera ampliado. Luego, se puede agregar al carrito
+desde la imagen ampliada o desde el index. En el carrito se puede elimar de a un producto, vaciarlo o comprar. Para
+efectuar la compra tenes que ingresarte previamente (no hice un registrarse ya que no usamos bases de datos ni validaciones)
+pero si ingresarse y guardar la informacion en el LocalStorage. Y por ultimo, la funcionabilidad de la barra de busqueda,
+desde parecer que era una ciencia enorme, de a poco se fue haciendo mas simple de lo que pensaba. Al buscar, utilizando un filter,
+podemos apreciar todos los productos y al apretar, te llevara a su informacion de manera ampliada. La pagina el 99% mia, lo unico
+que utilice de otro lugar fue el slider, pero con imagenes mias, para darle mas color y realidad a la aplicacion.
+Espero cumplir la espectativa y los requisitos! Saludos.
+Nicolas Angladette
 */
 
 //DIV PRODUCTOS
@@ -121,18 +133,20 @@ const productos = async () => {
                 resultado.forEach((p) => {
                     let contenedorSrc = document.createElement('div');
                     contenedorSrc.innerHTML =
-                        `
-                    <div class="card-src">
-                        <div class="d-flex justify-content-center align-center" style="width: 33%; height: 90%">
-                            <img class="img-src" src=${p.img} alt="Creapure">
+                    `
+                    <button class="btn-result" id="${p.id}">
+                        <div class="card-src">
+                            <div class="d-flex justify-content-center align-center" style="width: 33%; height: 90%">
+                                <img class="img-src" src=${p.img} alt="Creapure">
+                            </div>
+                            <div style=" width: 33%;">
+                                <p class="name-src" >${p.nombre}</p>
+                            </div>
+                            <div class="mt-2" style="width: 33%;">
+                                <p class="precio-src">$${p.precio}</p>
+                            </div>
                         </div>
-                        <div style=" width: 33%;">
-                            <p class="name-src" >${p.nombre}</p>
-                        </div>
-                        <div class="mt-2" style="width: 33%;">
-                            <p class="precio-src">$${p.precio}</p>
-                        </div>
-                    </div>
+                    </button>
                     `
                     resultados_src.appendChild(contenedorSrc);
                 });
@@ -149,6 +163,20 @@ const productos = async () => {
         } else {
             resultados_src.style.display = 'none';
         }
+
+        const btnSRC = document.querySelectorAll(".btn-result");
+        btnSRC.forEach((btn2, k) => {
+            btn2.addEventListener("click", () => {
+                ampliar(resultado[k])
+                const btnA = document.querySelector(".btnA");
+                search.value = '';
+                resultados_src.innerHTML = ''
+                btnA.addEventListener("click", () => {
+                    agregar(resultado[k]);
+                    toastBootstrap.show()
+            })
+            })
+        })
     })
 
     container_dropdown1.addEventListener('click', () => {
@@ -166,9 +194,6 @@ const productos = async () => {
     container_dropdown5.addEventListener('click', () => {
         pintarFiltrado(data, 5, "Suplementos deportivos");
     })
-    
-
-
 }
 productos()
 
@@ -616,7 +641,3 @@ btn_suscribe.addEventListener("click", () => {
         })  
     }
 })
-
-/* 
-    ELIMINAR CON DESCUENTO
-*/
