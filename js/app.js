@@ -397,9 +397,7 @@ function eliminar(p) {
         i++;
     }
     i--;
-    console.log(i)
     productos_local.splice(i,1);
-    console.log(productos_local)
     localStorage.setItem("productos", JSON.stringify(productos_local));
     div_toast_body.textContent = `Se elimino el producto del carrito!`;
     pintarCarro();
@@ -595,13 +593,22 @@ const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
 /* SUSCRIBIRSE */
 
 const btn_suscribe = document.querySelector("#suscripto");
-
+const mail_local = []
+localStorage.setItem("mailSuscripcion", JSON.stringify(mail_local));
 btn_suscribe.addEventListener("click", () => {
     const input_suscribe = document.querySelector("#floatingInput").value
     if (input_suscribe != ""){
-        let validar = localStorage.getItem(mailSuscripcion);
-        if (input_suscribe != validar){
-
+        let mailsSTR = JSON.parse(localStorage.getItem("mailSuscripcion"));
+        //FILTRAR Y VER SI ESTA EL MAIL
+        const existeMail = mailsSTR.find((el) => el === input_suscribe)
+        console.log(existeMail)
+        if (existeMail){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El email ya esta suscripto!'
+            })  
+        }else{
             Swal.fire({
                 title: 'Se ha suscripto a recibir nuevas ofertas!',
                 showClass: {
@@ -611,12 +618,8 @@ btn_suscribe.addEventListener("click", () => {
                   popup: 'animate__animated animate__fadeOutUp'
                 }
             })
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'El email ya esta suscripto!'
-            })  
+            mail_local.push(input_suscribe)
+            localStorage.setItem("mailSuscripcion", JSON.stringify(mail_local));
         }
     }else{
         Swal.fire({
