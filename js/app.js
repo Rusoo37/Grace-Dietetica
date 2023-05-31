@@ -1,19 +1,4 @@
-/* 
-Llego el fin del curso, primero que nada, quiero agradecerte Omar por el conocimiento y buena onda que le has
-metido a tus clases, espero que sigas asi!
-Ahora toca el codigo...
-Es una apliacion en la cual consiste en una dietetica que vende distintos tipos de productos, algunos con descuentos,
-otros no. Al apretar en los productos te llevara a su informacion de manera ampliado. Luego, se puede agregar al carrito
-desde la imagen ampliada o desde el index. En el carrito se puede elimar de a un producto, vaciarlo o comprar. Para
-efectuar la compra tenes que ingresarte previamente (no hice un registrarse ya que no usamos bases de datos ni validaciones)
-pero si ingresarse y guardar la informacion en el LocalStorage. Y por ultimo, la funcionabilidad de la barra de busqueda,
-desde parecer que era una ciencia enorme, de a poco se fue haciendo mas simple de lo que pensaba. Al buscar, utilizando un filter,
-podemos apreciar todos los productos y al apretar, te llevara a su informacion de manera ampliada. La pagina el 99% mia, lo unico
-que utilice de otro lugar fue el slider, pero con imagenes mias, para darle mas color y realidad a la aplicacion.
-Espero cumplir la espectativa y los requisitos! Saludos.
-Nicolas Angladette
-*/
-
+/* ACA TRAIGO LOS COMPONENTES NECESARIOS */
 //DIV PRODUCTOS
 const container_product = document.querySelector(".container-products")
 //DIV TITULO PRODUCTOS
