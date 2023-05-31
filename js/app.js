@@ -596,7 +596,8 @@ const btn_suscribe = document.querySelector("#suscripto");
 const mail_local = []
 localStorage.setItem("mailSuscripcion", JSON.stringify(mail_local));
 btn_suscribe.addEventListener("click", () => {
-    const input_suscribe = document.querySelector("#floatingInput").value
+    const input_suscripto = document.querySelector("#floatingInput")
+    const input_suscribe = input_suscripto.value
     if (input_suscribe != ""){
         let mailsSTR = JSON.parse(localStorage.getItem("mailSuscripcion"));
         //FILTRAR Y VER SI ESTA EL MAIL
@@ -620,6 +621,7 @@ btn_suscribe.addEventListener("click", () => {
             })
             mail_local.push(input_suscribe)
             localStorage.setItem("mailSuscripcion", JSON.stringify(mail_local));
+            input_suscripto.value = '';
         }
     }else{
         Swal.fire({
