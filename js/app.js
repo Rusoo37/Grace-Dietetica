@@ -213,6 +213,7 @@ function ampliar(p) {
     container_prod_ampliado.innerHTML = "";
     container_product.style.display = "none";
     slider.style.display = 'none';
+    x_carro.style.display = 'none';
     container_prod_ampliado.style.display = 'block';
     let contenedorA = document.createElement("div");
     contenedorA.innerHTML =
@@ -600,7 +601,6 @@ btn_suscribe.addEventListener("click", () => {
     const input_suscribe = input_suscripto.value
     if (input_suscribe != ""){
         let mailsSTR = JSON.parse(localStorage.getItem("mailSuscripcion"));
-        //FILTRAR Y VER SI ESTA EL MAIL
         const existeMail = mailsSTR.find((el) => el === input_suscribe)
         console.log(existeMail)
         if (existeMail){
